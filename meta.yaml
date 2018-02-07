@@ -1,0 +1,46 @@
+{% set name = "subprocess32" %}
+{% set version = "3.5.0" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "2733defaf2cb24282fdc94cc9f2e0682308d4b20e4b7a6e384580410f314c9af" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  url: https://pypi.io/packages/source/s/subprocess32/subprocess32-3.5.0rc1.tar.gz
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python
+    - setuptools
+  run:
+    - python
+
+about:
+  home: https://github.com/google/python-subprocess32
+  license: Python Software Foundation License
+  license_family: OTHER
+  license_file: ''
+  summary: A backport of the subprocess module from Python 3.2/3.3 for use on 2.x.
+  description: 'This is a backport of the subprocess standard library module from
+
+    Python 3.2 & 3.3 for use on Python 2.
+
+    It includes bugfixes and some new features.  On POSIX systems it is
+
+    guaranteed to be reliable when used in threaded applications.
+
+    It includes timeout support from Python 3.3 but otherwise matches
+
+    3.2''s API.  It has not been tested on Windows.'
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''
